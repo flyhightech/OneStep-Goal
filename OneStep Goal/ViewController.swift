@@ -2,13 +2,13 @@
 //  ViewController.swift
 //  OneStep Goal
 //
-//  Created by Bernard Huff on 10/2/18.
+//  Created by BernieDaEngineer on 10/2/18.
 //  Copyright © 2018 Flyhightech.LLC. All rights reserved.
 //
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet weak var textField: NSTextField!
     
@@ -23,16 +23,17 @@ class ViewController: NSViewController {
         
     }
     
-//  Below is the code that fetches the to do list items
+// MARK: - The code that fetches the to do list items
     
     func getToDoListItem() {
         
         if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
-//  Below is a do, try, catch, statement
+// Below is a do, try, catch, statement
             
             do {
                 toDoItems = try context.fetch(ToDoItem.fetchRequest())
+                print(toDoItems.count)
             } catch {}
         }
         
@@ -56,7 +57,7 @@ class ViewController: NSViewController {
                 
                 (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
                 
-//  Below is the code that clears out the screen after user enters new item.
+// MARK: -   Below is the code that clears out the screen after user enters new item.
                 
                 textField.stringValue = ""
                 importantCheckbox.state = NSControl.StateValue(rawValue: 0)
@@ -75,5 +76,6 @@ class ViewController: NSViewController {
     
     
     
-} //    End of the view controller class
+}//  Core Data Saving and Undo support
+
 
