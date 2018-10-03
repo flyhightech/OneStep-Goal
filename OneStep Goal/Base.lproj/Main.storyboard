@@ -831,17 +831,24 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="addClicked:" target="XfG-lQ-9wD" id="b6D-pK-mbN"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsO-fz-ZQ1">
                                 <rect key="frame" x="304" y="192" width="98" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Important" bezelStyle="regularSquare" imagePosition="left" alignment="center" state="on" inset="2" id="zyK-ab-nf7">
+                                <buttonCell key="cell" type="check" title="Important" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="zyK-ab-nf7">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="importantCheckbox" destination="hsO-fz-ZQ1" id="420-NY-R8K"/>
+                        <outlet property="textField" destination="ZAi-dQ-7K1" id="3IE-tW-Hd5"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
