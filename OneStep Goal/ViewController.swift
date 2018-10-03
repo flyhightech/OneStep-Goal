@@ -5,7 +5,6 @@
 //  Created by Bernard Huff on 10/2/18.
 //  Copyright © 2018 Flyhightech.LLC. All rights reserved.
 //
-//  Test
 
 import Cocoa
 
@@ -20,5 +19,12 @@ class ViewController: NSViewController {
     
 
 
-}
+    
+    
+    
+    
+    
+    
+    
+} //End of the view controller class
 
