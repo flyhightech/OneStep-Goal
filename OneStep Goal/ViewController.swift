@@ -11,10 +11,12 @@ import Cocoa
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet weak var textField: NSTextField!
-    
     @IBOutlet weak var importantCheckbox: NSButton!
+    @IBOutlet weak var tableView: NSTableView!
+    
     
     var toDoItems : [ToDoItem] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +39,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             } catch {}
         }
         
+        
     }
-
+    
     @IBAction func addClicked(_ sender: Any) {
         
         if textField.stringValue != "" {
@@ -57,7 +60,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
                 (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
                 
-// MARK: -   Below is the code that clears out the screen after user enters new item.
+//MARK: - Below is the code that clears out the screen
                 
                 textField.stringValue = ""
                 importantCheckbox.state = NSControl.StateValue(rawValue: 0)
@@ -65,6 +68,24 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
             }
         }
+    }
+    
+    // MARK: - Rows in each cell of the app.
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return toDoItems.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "importantCell"), owner: self) as? NSTableCellView {
+            
+            cell.textField?.stringValue = "Hello World"
+            
+            return cell
+        }
+        
+        return nil
+        
     }
     
 
@@ -76,6 +97,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     
-}//  Core Data Saving and Undo support
+}// MARK: - End of the document!!!
 
 

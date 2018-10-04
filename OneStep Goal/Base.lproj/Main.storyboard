@@ -736,7 +736,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="oxu-tE-GFi">
+                                                        <tableCellView identifier="importantCell" id="oxu-tE-GFi">
                                                             <rect key="frame" x="1" y="1" width="99" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -851,6 +851,7 @@
                     </view>
                     <connections>
                         <outlet property="importantCheckbox" destination="hsO-fz-ZQ1" id="420-NY-R8K"/>
+                        <outlet property="tableView" destination="B2Y-AU-JBo" id="WbS-Af-wJA"/>
                         <outlet property="textField" destination="ZAi-dQ-7K1" id="3IE-tW-Hd5"/>
                     </connections>
                 </viewController>
