@@ -17,7 +17,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     var toDoItems : [ToDoItem] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,14 +30,14 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
-// Below is a do, try, catch, statement
-            
             do {
                 toDoItems = try context.fetch(ToDoItem.fetchRequest())
                 print(toDoItems.count)
             } catch {}
+            
         }
         
+        tableView.reloadData()
         
     }
     
@@ -70,7 +69,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    // MARK: - Rows in each cell of the app.
+// MARK: - Rows in each cell of the app.
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return toDoItems.count
@@ -97,6 +96,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     
-}// MARK: - End of the document!!!
+}
+// MARK: - End of the document!!!
 
 
