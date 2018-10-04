@@ -9,7 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
+    
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var importantCheckbox: NSButton!
     @IBOutlet weak var tableView: NSTableView!
@@ -19,12 +19,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         getToDoListItem()
         
     }
     
-// MARK: - The code that fetches the to do list items
+    // MARK: - The code that fetches the to do list items
     
     func getToDoListItem() {
         
@@ -59,7 +59,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
                 (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
                 
-//MARK: - Below is the code that clears out the screen
+                //MARK: - Below is the code that clears out the screen
                 
                 textField.stringValue = ""
                 importantCheckbox.state = NSControl.StateValue(rawValue: 0)
@@ -69,26 +69,52 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-// MARK: - Rows in each cell of the app.
+    // MARK: - Rows in each cell of the app.
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return toDoItems.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "importantCell"), owner: self) as? NSTableCellView {
+        
+        let toDoItem = toDoItems[row]
+        
+        if (tableColumn?.identifier)!.rawValue == "" {
             
-            cell.textField?.stringValue = "Hello World"
+            // MARK: -            Important Column
             
-            return cell
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "importantCell"), owner: self) as? NSTableCellView {
+                
+                if toDoItem.important {
+                    cell.textField?.stringValue = "‼️"
+                } else {
+                    cell.textField?.stringValue = ""
+                }
+                
+                return cell
+            }
+            
+        } else {
+            
+            // MARK: -            To Do Column
+            
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "todoitems"), owner: self) as? NSTableCellView {
+                
+                cell.textField?.stringValue = toDoItem.name!
+                
+                return cell
+            }
+            
         }
+        
+        
         
         return nil
         
     }
     
-
-
+    
+    
     
     
     
