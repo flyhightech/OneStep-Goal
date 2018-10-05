@@ -13,7 +13,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var importantCheckbox: NSButton!
     @IBOutlet weak var tableView: NSTableView!
-    
+    @IBOutlet weak var deleteButton: NSButton!
     
     var toDoItems : [ToDoItem] = []
     
@@ -32,7 +32,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             
             do {
                 toDoItems = try context.fetch(ToDoItem.fetchRequest())
-                print(toDoItems.count)
             } catch {}
             
         }
@@ -59,13 +58,27 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
                 (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
                 
-                //MARK: - Below is the code that clears out the screen
+                //  Below is the code that clears out the screen
                 
                 textField.stringValue = ""
                 importantCheckbox.state = NSControl.StateValue(rawValue: 0)
                 getToDoListItem()
                 
             }
+        }
+    }
+    
+    // MARK: -  Below is the code for the DELETE button
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        
+        let toDoItem = toDoItems[tableView.selectedRow]
+        
+        if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            context.delete(toDoItem)
+            
+            (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
         }
     }
     
@@ -79,9 +92,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         let toDoItem = toDoItems[row]
         
-        if (tableColumn?.identifier)!.rawValue == "" {
+    // MARK: - Important Column
+        
+        if (tableColumn?.identifier)!.rawValue == "importantColumn" {
             
-            // MARK: -            Important Column
+            
             
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "importantCell"), owner: self) as? NSTableCellView {
                 
@@ -96,7 +111,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             
         } else {
             
-            // MARK: -            To Do Column
+    // MARK: - To Do Column
             
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "todoitems"), owner: self) as? NSTableCellView {
                 
@@ -104,12 +119,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
                 return cell
             }
-            
         }
-        
-        
-        
         return nil
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        deleteButton.isHidden = false
         
     }
     
@@ -118,11 +133,5 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     
-    
-    
-    
-    
 }
 // MARK: - End of the document!!!
-
-

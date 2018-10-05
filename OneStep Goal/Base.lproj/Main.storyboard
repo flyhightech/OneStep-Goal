@@ -847,9 +847,21 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prU-fY-a2c">
+                                <rect key="frame" x="300" y="13" width="227" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l4N-gh-ey3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" target="XfG-lQ-9wD" id="Ix7-Qn-rbR"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="prU-fY-a2c" id="isq-Un-JON"/>
                         <outlet property="importantCheckbox" destination="hsO-fz-ZQ1" id="420-NY-R8K"/>
                         <outlet property="tableView" destination="B2Y-AU-JBo" id="WbS-Af-wJA"/>
                         <outlet property="textField" destination="ZAi-dQ-7K1" id="3IE-tW-Hd5"/>
@@ -857,7 +869,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="773"/>
+            <point key="canvasLocation" x="105.5" y="772.5"/>
         </scene>
     </scenes>
 </document>
