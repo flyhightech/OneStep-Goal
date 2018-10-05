@@ -81,6 +81,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
             
             getToDoItems()
+            
+            deleteButton.isHidden = true
         }
     }
     
