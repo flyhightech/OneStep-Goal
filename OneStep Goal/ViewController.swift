@@ -20,13 +20,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getToDoListItem()
+        getToDoItems()
         
     }
     
-    // MARK: - The code that fetches the to do list items
+// MARK: - The code that fetches the to do list items
     
-    func getToDoListItem() {
+    func getToDoItems() {
         
         if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
@@ -62,13 +62,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 
                 textField.stringValue = ""
                 importantCheckbox.state = NSControl.StateValue(rawValue: 0)
-                getToDoListItem()
+                getToDoItems()
                 
             }
         }
     }
     
-    // MARK: -  Below is the code for the DELETE button
+// MARK: - Below is the code for the DELETE button
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
         
@@ -79,10 +79,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             context.delete(toDoItem)
             
             (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
+            
+            getToDoItems()
         }
     }
     
-    // MARK: - Rows in each cell of the app.
+// MARK: - Rows in each cell of the app.
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return toDoItems.count
@@ -92,11 +94,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         let toDoItem = toDoItems[row]
         
-    // MARK: - Important Column
+// MARK: - Important Column
         
         if (tableColumn?.identifier)!.rawValue == "importantColumn" {
-            
-            
             
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "importantCell"), owner: self) as? NSTableCellView {
                 
@@ -111,7 +111,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             
         } else {
             
-    // MARK: - To Do Column
+// MARK: - To Do Column
             
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "todoitems"), owner: self) as? NSTableCellView {
                 
