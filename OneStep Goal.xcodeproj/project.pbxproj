@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12CA77B2175C5CE0089D5BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A12CA77A2175C5CE0089D5BF /* GoogleService-Info.plist */; };
 		A1EF7AA121647644005D7BBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF7AA021647644005D7BBE /* AppDelegate.swift */; };
 		A1EF7AA321647644005D7BBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF7AA221647644005D7BBE /* ViewController.swift */; };
 		A1EF7AA621647644005D7BBE /* OneStep_Goal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1EF7AA421647644005D7BBE /* OneStep_Goal.xcdatamodeld */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A12CA77A2175C5CE0089D5BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1EF7A9D21647644005D7BBE /* OneStep Goal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneStep Goal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EF7AA021647644005D7BBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1EF7AA221647644005D7BBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				A1EF7AA72164764C005D7BBE /* Assets.xcassets */,
 				A1EF7AA92164764C005D7BBE /* Main.storyboard */,
 				A1EF7AAC2164764C005D7BBE /* Info.plist */,
+				A12CA77A2175C5CE0089D5BF /* GoogleService-Info.plist */,
 				A1EF7AAD2164764C005D7BBE /* OneStep_Goal.entitlements */,
 				A1EF7AA421647644005D7BBE /* OneStep_Goal.xcdatamodeld */,
 			);
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12CA77B2175C5CE0089D5BF /* GoogleService-Info.plist in Resources */,
 				A1EF7AA82164764C005D7BBE /* Assets.xcassets in Resources */,
 				A1EF7AAB2164764C005D7BBE /* Main.storyboard in Resources */,
 			);
@@ -284,7 +288,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.flyhightech.OneStep-Goal";
+				PRODUCT_BUNDLE_IDENTIFIER = net.flyhightech.OneStepGoal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -303,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.flyhightech.OneStep-Goal";
+				PRODUCT_BUNDLE_IDENTIFIER = net.flyhightech.OneStepGoal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
